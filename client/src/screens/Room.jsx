@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useState } from "react";
 import ReactPlayer from "react-player";
 import peer from "../service/peer";
 import { useSocket } from "../context/SocketProvider";
+import styles from "./Room.module.css"; // Import CSS module
 
 const RoomPage = () => {
   const socket = useSocket();
@@ -110,35 +111,50 @@ const RoomPage = () => {
   ]);
 
   return (
-    <div>
-      <h1>Room Page</h1>
-      <h4>{remoteSocketId ? "Connected" : "No one in room"}</h4>
-      {myStream && <button onClick={sendStreams}>Send Stream</button>}
-      {remoteSocketId && <button onClick={handleCallUser}>CALL</button>}
-      {myStream && (
-        <>
-          <h1>My Stream</h1>
-          <ReactPlayer
-            playing
-            muted
-            height="100px"
-            width="200px"
-            url={myStream}
-          />
-        </>
-      )}
-      {remoteStream && (
-        <>
-          <h1>Remote Stream</h1>
-          <ReactPlayer
-            playing
-            muted
-            height="100px"
-            width="200px"
-            url={remoteStream}
-          />
-        </>
-      )}
+    <div className={styles.roomContainer}>
+      <h1 className={styles.title}>Room</h1>
+      <h4 className={styles.status}>
+        {remoteSocketId ? "Connected" : "No one in room"}
+      </h4>
+      <div className={styles.buttonGroup}>
+        {myStream && (
+          <button className={styles.button}>
+            Send Stream
+          </button>
+        )}
+        {remoteSocketId && (
+          <button onClick={handleCallUser} className={styles.button}>
+            CALL
+          </button>
+        )}
+      </div>
+      <div className={styles.videoContainer}>
+  {myStream && (
+    <div className={styles.videoSection}>
+      <h3>My Stream</h3> 
+      <ReactPlayer
+        playing
+        muted
+        height="300px" // Increased height
+        width="500px"  // Increased width
+        url={myStream}
+        className={styles.video}
+      />
+    </div>
+  )}
+  {remoteStream && (
+    <div className={styles.videoSection}>
+      <h3>Remote Stream</h3>
+      <ReactPlayer
+        playing
+        height="300px" // Increased height
+        width="500px"  // Increased width
+        url={remoteStream}
+        className={styles.video}
+      />
+    </div>
+  )}
+</div>
     </div>
   );
 };

@@ -1,0 +1,74 @@
+.roomContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .status {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .videoContainer {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .videoSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .videoSection h3 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .video {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .videoSection {
+    width: 80%; /* Adjust width as needed */
+    max-width: 500px; /* Max width */
+  }
+  
+  .video {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+  }
+  
