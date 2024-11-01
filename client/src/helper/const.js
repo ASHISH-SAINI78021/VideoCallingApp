@@ -1,2 +1,2 @@
-const api = "localhost:8000";
+const api = "https://video-calling-app-kappa.vercel.app/";
 export default api;
