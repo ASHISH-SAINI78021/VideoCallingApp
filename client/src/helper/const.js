@@ -1,2 +1,2 @@
-const api = "https://video-calling-app-kappa.vercel.app/";
+const api = "https://videocallingapp-yldv.onrender.com/";
 export default api;
